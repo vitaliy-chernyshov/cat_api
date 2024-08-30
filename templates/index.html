@@ -1,25 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cats everyday</title>
-    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
-  </head>
-  <body>
-  <script src={{ url_for('static', filename='script.js') }}></script>
-    <div class="row">
-      {% for column in image_urls|batch(image_urls|length // 4) %}
-        <div class="column">
-          {% for image_url in column %}
-            <img src="{{ image_url }}" style="width:100%" onclick="openModal(this)">
-          {% endfor %}
-        </div>
-      {% endfor %}
-    </div>
-    <div id="myModal" class="modal">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <img class="modal-content" id="img01">
-    </div>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    {% for column in image_urls|batch(image_urls|length // 4) %}
+      <div class="column">
+        {% for image_url in column %}
+          <img src="{{ image_url }}"
+               style="width:100%"
+               onclick="openModal(this)"
+               alt="cat-image"
+          >
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01" alt="cat-image">
+  </div>
+{% endblock %}

@@ -7,7 +7,7 @@ def get_image_from_api() -> list[str]:
     """get image from thecatapi.com"""
     headers = {
         'Content-Type': 'application/json',
-        'x-api-key': os.getenv('API_KEY')
+        'x-api-key': os.getenv('API_KEY', 'DEMO_API_KEY')
     }
     params = {
         'limit': os.getenv('CATS_ON_PAGE', 10),

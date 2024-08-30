@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, serif;
 }
 
 .header {
@@ -34,6 +34,25 @@ body {
     width: 100%;
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
 }
 
 .column img:hover {
@@ -93,20 +112,33 @@ body {
     cursor: pointer;
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-    .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-    }
+.error-page {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Hide scrollbars */
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .column {
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;
-    }
+.error-page img {
+    max-width: 100%;
+    max-height: 80vh; /* Limit image height to avoid scrolling */
+    height: auto;
+    margin: 0;
+
+}
+
+.error-page p {
+    font-size: 18px;
+    color: #555;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -20px;
 }

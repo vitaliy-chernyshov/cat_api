@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="error-page">
+    <p>Sorry, something went wrong with your request.</p>
+    <img src="{{ url_for('static', filename='500.jpg') }}" alt="Bad Request Image">
+  </div>
+{% endblock %}

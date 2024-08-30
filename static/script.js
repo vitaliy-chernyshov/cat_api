@@ -3,7 +3,6 @@ function openModal(element) {
     let modalImg = document.getElementById("img01");
     modal.style.display = "block";
     modalImg.src = element.src;
-    // Add an event listener to close the modal when clicking anywhere
     modal.onclick = function () {
         closeModal();
     }
