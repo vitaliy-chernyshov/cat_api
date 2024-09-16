@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: flask_app
-    expose:
-      - "5000"
+    volumes:
+      - static:/static/
 
   nginx:
     image: nginx:alpine
@@ -18,5 +18,8 @@ services:
       - "8081:80"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - static:/static/
     depends_on:
       - flask
+volumes:
+  static:
